@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>동아리 지원서</title>
+</head>
+<body>
+    <form>
+        <table border="1">
+            <tr>
+                <th>동아리 명</th>
+                <td><strong>P&N</strong></td>
+            </tr>
+            <tr>
+                <th>이름</th>
+                <td>
+                    <input type="text" placeholder="이름을 입력하시오." required>
+                </td>
+            </tr>
+            <tr>
+                <th>학부 / 학과</th>
+                <td>
+                    <select>
+                        <option value="athletic" label="체육교육과"></option>
+                        <option value="computer" label="컴퓨터공학과" selected></option>
+                        <option value="business" label="경영학과"></option>
+                        <option value="pharmacy" label="약학과"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>학 년</th>
+                <td>
+                    <label><input type="radio" name="grade" value="grade1" checked>1학년</label>
+                    <label><input type="radio" name="grade" value="grade2">2학년</label>
+                    <label><input type="radio" name="grade" value="grade3">3학년</label>
+                    <label><input type="radio" name="grade" value="grade4">4학년</label>
+                </td>
+            </tr>
+            <tr>
+                <th>학 번</th>
+                <td>
+                    <input type="text" placeholder="학번을 입력하시오.">
+                </td>
+            </tr>
+            <tr>
+                <th>대학 입학 년도</th>
+                <td>
+                    <input type="text" value="2019" readonly>
+                </td>
+            </tr>
+            <tr>
+                <th>이메일</th>
+                <td>
+                    <input type="email" placeholder="이메일을 입력하시오." required>
+                </td>
+            </tr>
+            <tr>
+                <th>주 소</th>
+                <td>
+                    <input type="text" placeholder="주소를 입력하시오." size="50">
+                </td>
+            </tr>
+            <tr>
+                <th rowspan="2">연락처</th>
+                <td>
+                    <label><input type="radio" name="tel" value="house">집</label>
+                    <label><input type="radio" name="tel" value="phone">휴대폰</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><input type="tel" placeholder="전화번호를 입력하시오."></label>
+                </td>
+            </tr>
+            <tr>
+                <th>취 미</th>
+                <td>
+                    <input type="text" list="concern" placeholder="취미를 입력하시오.">
+                    <datalist id="concern">
+                        <option value="exercise" label="운동"></option>
+                        <option value="books" label="독서"></option>
+                        <option value="swim" label="수영"></option>
+                        <option value="game" label="게임"></option>
+                    </datalist>
+                </td>
+            </tr>
+            <tr>
+                <th>SNS 주소</th>
+                <td>
+                    <input type="text" placeholder="SNS 주소를 입력하시오.">
+                </td>
+            </tr>
+            <tr>
+                <th>가입 동기</th>
+                <td>
+                    <textarea rows="3" cols="60" wrap=off>P&N의 어떤 점을 보고 가입하고 싶으셨나요?</textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>자기 소개</th>
+                <td>
+                    <textarea rows="6" cols="60" wrap=off>당신은 어떤 사람인가요?</textarea>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="submit" value="가입하기">
+                    <input type="reset" value="취소하기">
+                </th>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
