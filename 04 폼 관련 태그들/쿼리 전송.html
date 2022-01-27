@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>쿼리 전송</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td>사번</td>
+            <td><input type="text"></td>
+            <td>이름</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>나이</td>
+            <td><input type="text"></td>
+            <td>성별</td>
+            <td>
+                <label><input type="radio" name="gender" value="male">남</label>
+                <label><input type="radio" name="gender" value="female">여</label>
+            </td>
+        </tr>
+        <tr>
+            <td>최종학력</td>
+            <td colspan="3"><input type="text"></td>
+        </tr>
+        <tr>
+            <td>취미</td>
+            <td colspan="3">
+                <label><input type="checkbox" name="concern1" value="sports">Sports</label>
+                <label><input type="checkbox" name="concern2" value="books">Books</label>
+                <label><input type="checkbox" name="concern3" value="dance">Dance</label>
+            </td>
+        </tr>
+        <tr>
+            <td>자기소개</td>
+            <td colspan="3"><input type="text"></td>
+        </tr>
+    </table>
+    <input type="submit" value="쿼리 전송">
+    <input type="reset" value="원래대로">
+</body>
+</html>
