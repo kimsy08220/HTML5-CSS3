@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>프로젝트 정보</title>
+</head>
+<body>
+    <style>
+        ul {
+            list-style:none;
+        }
+        li {
+            margin:20px;
+        }
+        li label {
+            width:120px;
+            float:left;
+        }
+        fieldset {
+            margin:15px;
+        }
+    </style>
+    <form>
+        <fieldset>
+            <legend>프로젝트 정보</legend>
+            <ul>
+                <li>
+                    <label for="name">이름</label>
+                    <input type="text" id="name">
+                </li>
+                <li>
+                    <label for="import">중요도</label>
+                    <input type="range" id="import" value="1" min="1" max="6" step="1">
+                </li>
+                <li>
+                    <label for="time">예상 시간</label>
+                    <input type="text" id="time">
+                </li>
+                <li>
+                    <label for="start">시작 날짜</label>
+                    <input type="text" id="start">
+                </li>
+                <li>
+                    <label for="email">이메일</label>
+                    <input type="text" id="email">
+                </li>
+                <li>
+                    <label for="url">URL</label>
+                    <input type="text" id="url">
+                </li>
+                <li>
+                    <label for="search">검색</label>
+                    <input type="text" id="search">
+                </li>
+                <input type="submit" value="전송">
+            </ul>
+        </fieldset>
+    </form>
+</body>
+</html>
