@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>원형 그라데이션3</title>
+    <style>
+        div {
+            width:500px;
+            height:300px;
+            border-radius:10px;
+            margin:10px;
+        }
+        .grad1 {
+            background:skyblue;
+            background:-webkit-radial-gradient(red, yellow, skyblue);
+            background:-moz-radial-gradient(red, yellow, skyblue);
+            background:-o-radial-gradient(red, yellow, skyblue);
+            background:radial-gradient(red, yellow, skyblue);
+        }
+        .grad2 {
+            background:red;
+            background:-webkit-radial-gradient(red, yellow 20%, skyblue);
+            background:-moz-radial-gradient(red, yellow 20%, skyblue);
+            background:-o-radial-gradient(red, yellow 20%, skyblue);
+            background:radial-gradient(red, yellow 20%, skyblue);
+        }
+    </style>
+</head>
+<body>
+    <div class="grad2"></div>
+</body>
+</html>
