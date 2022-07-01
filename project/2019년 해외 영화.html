@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>2019년 해외 영화</title>
+    <style>
+        /* PPT 제작할 때 참고 */
+
+        /* 수업시간에 배운 것! */
+        /* 표 : 메뉴바, 유튜브 영상, best 영화 포스터(국내, 해외), 영화에 대한 설명(출연진, 줄거리, 명대사), 총 4개 사용 */
+        /* 하이퍼링크 : 메뉴바 클릭 시 페이지 이동, 각각의 best 영화 포스터 클릭 시 페이지 이동, 총 7개 사용 */
+        /* 이미지 : 영화 포스터는 직접 이미지 파일에 저장, 출연진은 다음 사이트에서 이미지 주소를 사용, 총 10개 사용 */
+        /* fieldset : 출연진, 줄거리, 명대사, 총 3개 사용 */
+
+        /* 수업시간에 배우지 않은 것! */
+        /* 수동 슬라이드 : 컨트롤 사용 */
+
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        /* 표 전체 */
+        table {
+            background-color: black;
+            width: 100%;
+        }
+
+        /* 메뉴바 */
+        a { 
+            text-decoration: none; 
+            color: inherit;
+        } 
+        .menubar {
+            position: fixed; /* 메뉴바 고정 */
+            top: 0px; 
+            left: 0px; 
+            right: 0px; 
+            z-index: 1; /* 메뉴바 상단 위치 순위 */
+        }
+        
+        /* 영화 예고편 */
+        .youtube { margin-top: 100px;}
+
+        /* 영화 BEST 포스터 이미지 확대 */
+        a img { transition: all 0.2s linear; }
+        a:hover img { transform: scale(1.4); }
+
+        /* 영화 제목 */
+        .moviename {
+            font-size: 13px; 
+            text-align: center;
+        }
+
+        /* 영화 출연진 사진 간격 */
+        .movie_actor th { width: 25%; }
+
+        /* 하단 출연진 수동 슬라이드 */
+        .slidebox {
+            max-width: 100%;
+            margin-left: 12.5%;
+            align-items: center;
+            position: relative;
+        }
+        .slidebox .slidelist {
+            position: relative;
+            max-width: 85%;
+            white-space: nowrap;
+            font-size: 0;
+            overflow: hidden;
+        }
+        .slidebox .slidelist .slideitem {
+            position: relative;
+            display: inline-block;
+            vertical-align: center;
+            width: 100%;
+            transition: all 1s;
+        }
+
+        /* 수동 슬라이드 화살표 모양 */
+        .slidebox .slide-control [class*="control"] label {
+            position: absolute;
+            z-index: index 1;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* 수동 슬라이드 왼쪽 화살표 이미지 및 위치 */
+        .slidebox .slide-control [class*="control"] label.prev {
+            left: -10%;
+            background:black url('images/icon/left-arrow.png') center center / 50% no-repeat;
+        }
+        /* 수동 슬라이드 오른쪽 화살표 이미지 및 위치 */
+        .slidebox .slide-control [class*="control"] label.next {
+            right: 5%;
+            background:black url('images/icon/right-arrow.png') center center / 50% no-repeat;
+        }
+
+        /* 포스터 슬라이드 효과 */
+        [name="slide"] { display:none; }
+        #slide01:checked ~ .slidelist .slideitem { left:0%; }
+        #slide02:checked ~ .slidelist .slideitem { left:-25%; }
+        #slide03:checked ~ .slidelist .slideitem { left:-50%; }
+        #slide04:checked ~ .slidelist .slideitem { left:-75%; }
+        #slide05:checked ~ .slidelist .slideitem { left:-100%; }
+
+        /* 컨트롤러 효과 */
+        .slide-control [class*="control"] { display:none; }
+        #slide01:checked ~ .slide-control .control01 { display:block; }
+        #slide02:checked ~ .slide-control .control02 { display:block; }
+        #slide03:checked ~ .slide-control .control03 { display:block; }
+        #slide04:checked ~ .slide-control .control04 { display:block; }
+        #slide05:checked ~ .slide-control .control05 { display:block; }           
+    </style>
+</head>
+<body>
+    <!-- 로고 및 메뉴바 -->
+    <div class="menubar">
+        <table style="font-size:20px; height:100px;">
+            <tr>
+                <th width="20%" style="font-size:40px;">
+                    <a href="현재 상영 영화.html">Movie Theater</a>
+                </th>
+                <td width="10%"></td>
+                <td width="10%" style="text-align:center;">
+                    <a href="현재 상영 영화.html">현재 상영 영화</a>
+                </td>
+                <td width="10%" style="text-align:center;">
+                    <a href="2021년 국내 영화.html">2021년 영화</a>
+                </td>
+                <td width="10%" style="text-align:center;">
+                    <a href="2020년 국내 영화.html">2020년 영화</a>
+                </td>
+                <td width="10%" style="text-align:center; border-style:solid; border-color:black black white black;">
+                    <a href="2019년 국내 영화.html">2019년 영화</a>
+                </td>
+                <td width="10%" style="text-align:center;">
+                    <a href="관람객 평점순.html">평점순</a>
+                </td>
+                <td width="20%"></td>
+            </tr> 
+        </table>  
+    </div>  
+    
+    <!-- 유튜브 예고편 영상 -->
+    <div class="youtube">
+        <table height="600px">
+            <tr>
+                <th>
+                    <iframe width="60%" height="100%" src="https://www.youtube.com/embed/TaCE5sAigGQ" title="YouTube video player" 
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                </th>
+            </tr>
+        </table>
+    </div>
+    <br><br><br><br>
+
+    <!-- 2019년 BEST 영화 포스터(국내, 해외) -->
+    <div>
+        <table width="100%">
+            <tr>
+                <th width="17.87%"></th>
+                <th width="14.28%"></th>
+                <th width="14.28%">
+                    <a href="2019년 국내 영화.html">
+                        <img src="images/movie_poster/2019_movie/극한직업.png" width="100%">
+                    </a>
+                </th>
+                <th width="7.14%"></th>
+                <th width="4.28%">
+                    <a href="2019년 해외 영화.html">
+                        <img src="images/movie_poster/2019_movie/어벤져스_엔드게임.png" width="100%">
+                    </a>
+                </th>
+                <th width="14.28%"></th>
+                <th width="17.87%"></th>
+            </tr>
+            <tr>
+                <th width="17.87%"></th>
+                <th width="14.28%"></th>
+                <th width="14.28%">극한직업</th>
+                <th width="7.14%"></th>
+                <th width="14.28%">어벤져스 : 엔드게임</th>
+                <th width="14.28%"></th>
+                <th width="17.87%"></th>
+            </tr>
+        </table>
+    </div>
+    <br><br><br><br>
+
+    <!-- 해당 영화에 대한 설명 -->
+    <div>
+        <table style="width:60%; margin-left:20%;">
+            <tr>
+                <td colspan="2">
+                    <!-- 해당 영화에 대한 출연진 -->
+                    <fieldset>
+                        <legend><b style="font-size:18px;">출연진</b></legend>
+                        <br><br>
+                        <div class="slidebox">
+                            <input type="radio" name="slide" id="slide01" checked>
+                            <input type="radio" name="slide" id="slide02">
+                            <input type="radio" name="slide" id="slide03">
+                            <input type="radio" name="slide" id="slide04">
+                            <input type="radio" name="slide" id="slide05">
+                            <ul class="slidelist" style="padding:0px; margin:0px;">
+                                <li class="slideitem">
+                                    <!-- 처음 화면에 보이는 출연진 사진 4개 -->
+                                    <table>
+                                        <tr class="movie_actor">
+                                            <th>
+                                                <img src="https://img1.daumcdn.net/thumb/C116x168/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fab54c9376e20f9ec5aed877bbba363c99300147a" width="100%">
+                                            </th>
+                                            <td></td>
+                                            <th>
+                                                <img src="https://img1.daumcdn.net/thumb/C116x168/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F5406bf152ca8e89d6fa428af5d30ca4b8d97122b" width="100%">
+                                            </th>
+                                            <td></td>
+                                            <th>
+                                                <img src="https://img1.daumcdn.net/thumb/C116x168/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fd5c9c582761385b655e320bd54c234adbd3f5726" width="100%">
+                                            </th>
+                                            <td></td>
+                                            <th>
+                                                <img src="https://img1.daumcdn.net/thumb/C116x168/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F3d675930c5070980b34659028ad900349d6a4e03" width="100%">
+                                            </th>
+                                        </tr>
+                                    </table>
+                                    <!-- 처음 화면에 보이는 출연진 설명 4개 -->
+                                    <table class="moviename">
+                                        <tr class="movie_actor">
+                                            <th>로버트 다우니 주니어<br><span style="font-size:12px; color:red;">주연</span> | 아이언맨 역</th>
+                                            <td></td>
+                                            <th>크리스 에반스<br><span style="font-size:12px; color:red;">주연</span> | 캡틴 아메리카 역</th>
+                                            <td></td>
+                                            <th>크리스 헴스워스<br><span style="font-size:12px; color:red;">주연</span> | 토르 역</th>
+                                            <td></td>
+                                            <th>마크 러팔로<br><span style="font-size:12px; color:red;">주연</span> | 헐크 역</th>
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li class="slideitem">
+                                    <!-- 슬라이드로 넘겼을 때 화면에 보이는 출연진 사진 4개 -->
+                                    <table>
+                                        <tr class="movie_actor">
+                                            <th>
+                                                <img src="https://img1.daumcdn.net/thumb/C116x168/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F03314f3ce837d275078e5f573b18e38889ceaab2" width="100%">
+                                            </th>
+                                            <td></td>
+                                            <th>
+                                                <img src="https://img1.daumcdn.net/thumb/C116x168/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fa110c4966a6863d45e42ed33bd3808d173e2884a" width="100%">
+                                            </th>
+                                            <td></td>
+                                            <th>
+                                                <img src="https://img1.daumcdn.net/thumb/C116x168/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F2d483f44099f8a0c0e2a575494c5877e213fd348" width="100%">
+                                            </th>
+                                            <td></td>
+                                            <th>
+                                                <img src="https://img1.daumcdn.net/thumb/C116x168/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fcfile%2F1360C910ADFE717117" width="100%">
+                                            </th>
+                                        </tr>
+                                    </table>
+                                    <!-- 슬라이드로 넘겼을 때 처음 화면에 보이는 출연진 설명 4개 -->
+                                    <table class="moviename">
+                                        <tr class="movie_actor">
+                                            <th>스칼릿 조핸슨<br><span style="font-size:12px; color:red;">주연</span> | 블랙위도우 역</th>
+                                            <td></td>
+                                            <th>제레미 레너<br><span style="font-size:12px; color:red;">주연</span> | 호크 아이 역</th>
+                                            <td></td>
+                                            <th>폴 러드<br><span style="font-size:12px; color:red;">주연</span> | 엔트맨 역</th>
+                                            <td></td>
+                                            <th>돈 치들<br><span style="font-size:12px; color:red;">주연</span> | 워 머신 역</th>
+                                        </tr>
+                                    </table>
+                                </li>                        
+                            </ul>
+                            
+                            <!-- 수동 슬라이드 화살표 컨트롤러 -->
+                            <div class="slide-control">
+                                <div class="control01">
+                                    <label for="slide02" class="next"></label>
+                                </div>
+                                <div class="control02">
+                                    <label for="slide01" class="prev"></label>
+                                    <label for="slide03" class="next"></label>
+                                </div>
+                                <div class="control03">
+                                    <label for="slide02" class="prev"></label>
+                                    <label for="slide04" class="next"></label>
+                                </div>
+                                <div class="control04">
+                                    <label for="slide03" class="prev"></label>
+                                    <label for="slide05" class="next"></label>
+                                </div>
+                                <div class="control05">
+                                    <label for="slide04" class="prev"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <br><br>
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- 해당 영화에 대한 줄거리 -->
+                    <fieldset style="height:270px;">
+                        <legend><b style="font-size:18px;">줄거리</b></legend>
+                        <p>
+                            <br><br><br><b>"인피니티 워 이후 절반만 살아남은 지구</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                            마지막 희망이 된 어벤져스<br>
+                            먼저 떠난 그들을 위해 모든 것을 걸었다!<br>
+                            위대한 어벤져스 운명을 바꿀 최후의 전쟁이 펼쳐진다!"<br>
+                        </p>
+                    </fieldset>
+                </td>
+                <td>
+                    <!-- 해당 영화에 대한 명대사 -->
+                    <fieldset style="height:270px;">
+                        <legend><b style="font-size:18px;">명대사</b></legend>
+                        <p>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <img src="https://img1.daumcdn.net/thumb/C116x168/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fab54c9376e20f9ec5aed877bbba363c99300147a" width="80px" height="110px">
+                                    </td>
+                                    <td>
+                                        <b>로버트 다우니 주니어</b> | <span style="font-size:12px; color:red;">아이언맨</span><br>I AM IRON MAN.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="https://img1.daumcdn.net/thumb/C116x168/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fab54c9376e20f9ec5aed877bbba363c99300147a" width="80px" height="110px">
+                                    </td>
+                                    <td>
+                                        <b>로버트 다우니 주니어</b> | <span style="font-size:12px; color:red;">아이언맨</span><br>3,000만큼 사랑해
+                                    </td>
+                                </tr>
+                            </table>
+                        </p>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br><br><br>
+</body>
+</html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>관람객 평점순</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        /* 표 전체 */
+        table {
+            background-color: black;
+            width: 100%;
+        }
+
+        /* 메뉴바 */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .menubar {
+            position: fixed;
+            /* 메뉴바 고정 */
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            z-index: 1;
+            /* 메뉴바 상단 위치 순위 */
+        }
+
+        ul,li {
+            list-style: none;
+        }
+
+        /*외쪽 고정 메뉴바*/
+        .leftmenu {
+            list-style-type: none;
+            background-color: black;
+            width: 15%;
+            padding: 0;
+            margin: 0;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+
+        li a {
+            text-decoration: none;
+            display: block;
+            color: #fff;
+            padding: 10px 15px 10px 15px;
+            font-weight: bolder;
+        }
+
+        li a.job {
+            background-color: gray;
+            color: black;
+            font-weight: bolder;
+            font-size: larger;
+        }
+
+        li a:hover:not(.job) {
+            background-color: gray;
+            color: black;
+        }
+
+        /* 영화 포스터 이미지 확대*/
+        a img {
+            transition: all 0.2s linear;
+            width: 100%;
+        }
+
+        a:hover img {
+            transform: scale(1.4);
+        }
+
+        /* 영화 포스터 간격 */
+        .now_movie_reservation th {
+            width: 18.4%;
+        }
+
+        .now_movie_reservation td {
+            width: 2%;
+        }
+
+        .moviename {
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .movie_table {
+            max-width: 100%;
+            position: relative;
+        }
+
+        /*테이블 라인 보여줌
+        table, th, td {
+            max-width: 100%;
+            border-collapse: collapse;
+            border:5px solid white;
+        }*/
+    </style>
+</head>
+
+<body>
+    <!-- 로고 및 메뉴바 -->
+    <div class="menubar">
+        <table style="font-size:20px; height:100px;">
+            <tr>
+                <th width="20%" style="font-size:40px;">
+                    <a href="현재 상영 영화.html">Movie Theater</a>
+                </th>
+                <td width="10%"></td>
+                <td width="10%" style="text-align:center;">
+                    <a href="현재 상영 영화.html">현재 상영 영화</a>
+                </td>
+                <td width="10%" style="text-align:center;">
+                    <a href="2021년 국내 영화.html">2021년 영화</a>
+                </td>
+                <td width="10%" style="text-align:center;">
+                    <a href="2020년 국내 영화.html">2020년 영화</a>
+                </td>
+                <td width="10%" style="text-align:center;">
+                    <a href="2019년 국내 영화.html">2019년 영화</a>
+                </td>
+                <td width="10%" style="text-align:center; border-style:solid; border-color:black black white black;">
+                    <a href="관람객 평점순.html">평점순</a>
+                </td>
+                <td width="20%"></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- menubar 때문에 body에서 margin-top:100px 하고 작성해야함!!!!!! -->
+
+    <div style="margin-top:120px;" >
+        <ul class="leftmenu">
+            <li><a class="job" href="관람객 평점순.html">관람객 평점순</a>
+                <ul>
+                    <li><a href="#2021">2021년 영화</a></li>
+                    <li><a href="#2020">2020년 영화</a></li>
+                    <li><a href="#2019">2019년 영화</a></li>
+                </ul>
+            </li>
+            <li><a href="평론가 평점순.html">평론가 평점순</a>
+                <ul>
+                    <li><a href="평론가 평점순.html#2021">2021년 영화</a></li>
+                    <li><a href="평론가 평점순.html#2020">2020년 영화</a></li>
+                    <li><a href="평론가 평점순.html#2019">2019년 영화</a></li>
+                </ul>
+            </li>
+            <li><a href="네티즌 평점순.html">네티즌 평점순</a>
+                <ul>
+                    <li><a href="네티즌 평점순.html#2021">2021년 영화</a></li>
+                    <li><a href="네티즌 평점순.html#2020">2020년 영화</a></li>
+                    <li><a href="네티즌 평점순.html#2019">2019년 영화</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!--관람객 평점순-->
+    <div style="margin-left:15%; padding:1px 16px; height:1000px;">
+        <!--2021년 영화-->
+        <h1>관람객 평점순</h1>
+        <div id="2021" class="now_movie_reservation" style="margin-bottom:30px;">
+            <br><br>
+            <h2>2021년 영화</h2>
+            <!--국내영화-->
+            <h3>국내 영화</h3>
+            <table>
+                <tr>
+                    <th>
+                        <!--모가디슈-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=192150" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20210820_122/1629448997924YXUCv_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--보이스-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=190320" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20210831_152/1630371935224qy9s6_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--발신제한-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=194205" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20210609_138/1623220637715dKMK5_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--인질-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=185614" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20210923_298/1632376015399DWJAd_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--싱크홀-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=188472" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20210726_114/1627265960693kkM0B_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                </tr>
+            </table>
+            <table class="now_movie_reservation">
+                <tr>
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=192150" target="_blank">
+                        <br>모가디슈<br></a><img src="images/icon/Yellow Star.png" width="12px"> 8.67</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=190320" target="_blank">
+                        <br>보이스<br></a><img src="images/icon/Yellow Star.png" width="12px"> 7.86</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=194205" target="_blank">
+                        <br>발신제한<br></a><img src="images/icon/Yellow Star.png" width="12px"> 7.60</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=185614" target="_blank">
+                        <br>인질<br></a><img src="images/icon/Yellow Star.png" width="12px"> 7.14</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=188472" target="_blank">
+                        <br>싱크홀<br></a><img src="images/icon/Yellow Star.png" width="12px"> 7.01</th>
+                </tr>
+            </table>
+            <!--해외영화-->
+            <h3>해외 영화</h3>
+            <table>
+                <tr>
+                    <th>
+                        <!--극장판 귀멸의 칼날:무한열차편-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=196051" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20220331_264/1648693399684Fm31b_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--스파이더맨:노 웨이 홈-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=208077" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20211215_297/1639556766975z0641_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--블랙 위도우-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=184318" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20210617_272/1623906098516QjpeS_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--분노의 질주: 더 얼티메이트-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=189150" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20210421_37/1618971733493B4ykS_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--이터널스-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=184311" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20211026_97/1635213484861yCnwO_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                </tr>
+            </table>
+            <table class="now_movie_reservation">
+                <tr>
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=196051" target="_blank">
+                        <br>극장판 귀멸의 칼날:무한열차편<br></a><img src="images/icon/Yellow Star.png" width="12px"> 9.60</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=208077" target="_blank">
+                        <br>스파이더맨:노 웨이 홈<br></a><img src="images/icon/Yellow Star.png" width="12px"> 9.11</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=184318" target="_blank">
+                        <br>블랙 위도우<br></a><img src="images/icon/Yellow Star.png" width="12px"> 9.03</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=189150" target="_blank">
+                        <br>분노의 질주: 더 얼티메이트<br></a><img src="images/icon/Yellow Star.png" width="12px"> 8.80</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=184311" target="_blank">
+                        <br>이터널스<br></a><img src="images/icon/Yellow Star.png" width="12px"> 6.44</th>
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <!--2020년 영화-->
+        <div id="2020" class="now_movie_reservation" style="margin-bottom:30px;">
+            <br><br>
+            <h2>2020년 영화</h2>
+            <!--국내영화-->
+            <h3>국내 영화</h3>
+            <table>
+                <tr>
+                    <th>
+                        <!--다만 악에서 구하소서-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=189069" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20200706_191/1594001490577tifkl_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--남산의 부장들-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=190320" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20200103_41/1578032244761ejKMX_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--히트맨-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=185838" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20200122_181/15796574636309Fux2_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--반도-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=185917" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20200624_137/15929908359489lOON_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--#살아있다-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=189537" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20200624_189/1592965781317Puv47_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                </tr>
+            </table>
+            <table class="now_movie_reservation">
+                <tr>
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=189069" target="_blank">
+                        <br>다만 악에서 구하소서<br></a><img src="images/icon/Yellow Star.png" width="12px"> 8.57</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=190320" target="_blank">
+                        <br>남산의 부장들<br></a><img src="images/icon/Yellow Star.png" width="12px"> 8.46</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=185838" target="_blank">
+                        <br>히트맨<br></a><img src="images/icon/Yellow Star.png" width="12px"> 7.98</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=185917" target="_blank">
+                        <br>반도<br></a><img src="images/icon/Yellow Star.png" width="12px"> 7.21</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=189537" target="_blank">
+                        <br>#살아있다<br></a><img src="images/icon/Yellow Star.png" width="12px"> 7.02</th>
+                </tr>
+            </table>
+            <!--해외영화-->
+            <h3>해외 영화</h3>
+            <table>
+                <tr>
+                    <th>
+                        <!--작은 아씨들-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=186613" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20200309_102/1583733575200NVLwA_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--1917-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=187321" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20200212_161/1581489520959v0cjn_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--테넷-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=190010" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20200728_86/15959209130236RePy_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--미드웨이-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=186615" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20200130_82/1580371434525r44gc_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--닥터 두리틀-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=159866" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20191226_207/1577328208589oxfYb_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                </tr>
+            </table>
+            <table class="now_movie_reservation">
+                <tr>
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=186613" target="_blank">
+                        <br>작은 아씨들<br></a><img src="images/icon/Yellow Star.png" width="12px"> 9.13</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=187321" target="_blank">
+                        <br>1917<br></a><img src="images/icon/Yellow Star.png" width="12px"> 9.07</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=190010" target="_blank">
+                        <br>테넷<br></a><img src="images/icon/Yellow Star.png" width="12px"> 8.76</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=186615" target="_blank">
+                        <br>미드웨이<br></a><img src="images/icon/Yellow Star.png" width="12px"> 8.66</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=159866" target="_blank">
+                        <br>닥터 두리틀<br></a><img src="images/icon/Yellow Star.png" width="12px"> 8.13</th>
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <!--2019년 영화-->
+        <div id="2019" class="now_movie_reservation" style="margin-bottom:30px;">
+            <br><br>
+            <h2>2019년 영화</h2>
+            <!--국내영화-->
+            <h3>국내 영화</h3>
+            <table>
+                <tr>
+                    <th>
+                        <!--극한직업-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=167651" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20190116_206/1547615429111dINWj_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--기생충-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=161967" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20190528_36/1559024198386YVTEw_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--봉오동 전투-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=178526" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20190719_213/1563513194134ksAGD_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--엑시트-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=174903" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20190724_161/1563931152464tk11A_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--백두산-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=187940" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20191219_263/15767415637757HPgg_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                </tr>
+            </table>
+            <table class="now_movie_reservation">
+                <tr>
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=167651" target="_blank">
+                        <br>극한직업<br></a><img src="images/icon/Yellow Star.png" width="12px"> 9.20</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=161967" target="_blank">
+                        <br>기생충<br></a><img src="images/icon/Yellow Star.png" width="12px"> 9.07</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=178526" target="_blank">
+                        <br>봉오동 전투<br></a><img src="images/icon/Yellow Star.png" width="12px"> 9.07</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=174903" target="_blank">
+                        <br>엑시트<br></a><img src="images/icon/Yellow Star.png" width="12px"> 8.99</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=187940" target="_blank">
+                        <br>백두산<br></a><img src="images/icon/Yellow Star.png" width="12px"> 7.48</th>
+                </tr>
+            </table>
+            <!--해외영화-->
+            <h3>해외 영화</h3>
+            <table>
+                <tr>
+                    <th>
+                        <!--어벤져스 : 엔드게임-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=136900" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20190417_250/1555465284425i6WQE_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--알라딘-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=163788" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20190524_104/1558663170174Q2mmw_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--스파이더맨 : 파 프롬 홈-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=173123" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20190527_181/1558933159657a210P_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--겨울왕국2-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=136873" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20191121_221/1574298335357mqgLk_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                    <td></td>
+                    <th>
+                        <!--캡틴 마블-->
+                        <a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=132623" target="_blank">
+                            <img src="https://movie-phinf.pstatic.net/20190225_72/1551069530582h2huX_JPEG/movie_image.jpg">
+                        </a>
+                    </th>
+                </tr>
+            </table>
+            <table class="now_movie_reservation">
+                <tr>
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=136900" target="_blank">
+                        <br>어벤져스 : 엔드게임<br></a><img src="images/icon/Yellow Star.png" width="12px"> 9.50</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=163788" target="_blank">
+                        <br>알라딘<br></a><img src="images/icon/Yellow Star.png" width="12px"> 9.42</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=173123" target="_blank">
+                        <br>스파이더맨 : 파 프롬 홈<br></a><img src="images/icon/Yellow Star.png" width="12px"> 8.99</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=136873" target="_blank">
+                        <br>겨울왕국2<br></a><img src="images/icon/Yellow Star.png" width="12px"> 8.95</th>
+
+                    <td></td>
+
+                    <th><a href="https://movie.naver.com/movie/bi/mi/basic.naver?code=132623" target="_blank">
+                        <br>캡틴 마블<br></a><img src="images/icon/Yellow Star.png" width="12px"> 8.45</th>
+                </tr>
+            </table>
+        </div>
+        <br><br>
+
+    </div>
+</body>
+
+</html>
