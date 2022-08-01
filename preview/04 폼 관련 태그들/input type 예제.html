@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>input type 예제</title>
+</head>
+<body>
+	<form action="input.php" method="post">
+        <input type="hidden" name="이름" value="서버로 넘길 값">
+        <br>
+        <input type="password" name="비밀번호">
+        <br><br>
+        <input type="text" value="text">
+        <br><br>
+        <input type="search" value="search는 x 표시">
+        <br><br>
+        <input type="email" value="email은 kimsy08220@naver.com 입력" size="30">
+        <br><br>
+        <input type="url" value="url은 http://www 입력">
+        <br><br>
+        <input type="tel" value="tel">
+        <br><br>
+        <input type="submit" value="저장">
+        <br><br>
+        <b>주문 개수 : </b><input type="number" min="1" max="5" value="1"> 개
+        <br><br>
+        <b>주문 개수 : </b><input type="range" min="1" max="5" value="1"> 개
+        <br><br>
+        <h3>조회기간 선택</h3>
+        <label><input type="date" id="start"></label>
+        <label><input type="date" id="end"></label>
+        <br><br>
+        <h3>대관시간을 선택하세요(오늘)</h3>
+        <label><input type="time" id="start" value="09:00"></label>
+        <label><input type="time" id="end" value="18:00"></label>
+        <h3>대관시간을 선택하세요(다른 날짜)</h3>
+        <label><input type="datetime-local" value="2016-03-02T09:00" id="start" ></label>
+        <label><input type="datetime-local" value="2016-03-02T18:00" id="end"></label>
+        <br><br>
+    </form>
+    <h3>메일링 리스트 등록</h3>
+    <form action="register.php" method="post">
+        <label>메일 주소<input type="text"></label>
+        <input type="submit" value="제출">
+        <input type="reset" value="다시입력">
+    </form>
+    <br>
+    <form action="register.php" method="post">
+        <label>아이디<input type="text" size="15"></label>
+        <label>비밀번호<input type="text" size="15"></label>
+        <input type="image" src="images/login.jpg" id="butt" alt="login">
+    </form>
+</body>
+</html>
