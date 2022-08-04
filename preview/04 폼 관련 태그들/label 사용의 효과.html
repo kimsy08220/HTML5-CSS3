@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>label 사용의 효과</title>
+    <style>
+        ul {
+            list-style:none;
+        }
+        li {
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>수강 분야(다수 선택 가능) - label x</h3>
+	<form action="checkbox.php" method="post">
+        <ul>
+            <li><input type="checkbox" value="grammer">문법</li>
+            <li><input type="checkbox" value="writing">작문</li>
+            <li><input type="checkbox" value="rd">독해</li>
+        </ul>
+    </form>
+
+    <h3>수강 분야(1과목만 선택 가능) - label o</h3>
+	<form action="radio.php" method="post">
+        <ul>
+            <li>
+                <label><input type="radio" name="submit" value="eng">영어회화</label>
+            </li>
+            <li>
+                <label><input type="radio" name="submit" value="ch">중국어회화</label>
+            </li>
+            <li>
+                <label><input type="radio" name="submit" value="jp">일어회화</label>
+            </li>
+        </ul>
+    </form>
+</body>
+</html>
