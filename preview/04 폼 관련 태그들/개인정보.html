@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>개인정보</title>
+    <style>
+        ul {
+            list-style:none;
+        }
+        li {
+            margin:20px;
+        }
+        li label {
+            width:80px;
+            float:left;
+        }
+        fieldset {
+            margin:15px;
+        }
+    </style>
+</head>
+<body>
+	<form action="information.php" method="post">
+        <ul>
+            <li>
+                <label for="name">이름</label>
+                <input type="text" id="name">
+            </li>
+            <li>
+                <label for="email">메일 주소</label>
+                <input type="text" id="email">
+            </li>
+            <li>
+                <label for="id">아이디</label>
+                <input type="text" id="id">
+            </li>
+            <li>
+                <label for="pw">비밀번호</label>
+                <input type="text" id="pw">
+            </li>
+        </ul>
+    </form>
+</body>
+</html>
