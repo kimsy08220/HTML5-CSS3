@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>자기소개서</title>
+</head>
+<body>
+    <form action="information.php" method="post">
+	    <table border="1">
+            <tr>
+                <td>사번</td>
+                <td><input type="text" id="num"></td>
+                <td>이름</td>
+                <td><input type="text" id="name"></td>
+            </tr>
+            <tr>
+                <td>나이</td>
+                <td><input type="text" id="age"></td>
+                <td>성별</td>
+                <td>
+                    <label><input type="radio" name="sex" value="male">남</label>
+                    <label><input type="radio" name="sex" value="female">여자</label>
+                </td>
+            </tr>
+            <tr>
+                <td>최종학력</td>
+                <td colspan="3"><input type="text" id="info"></td>
+            </tr>
+            <tr>
+                <td>취미</td>
+                <td colspan="3">
+                    <label><input type="checkbox" name="exercise1" value="sports">Sports</label>
+                    <label><input type="checkbox" name="exercise2" value="books">Books</label>
+                    <label><input type="checkbox" name="exercise3" value="dance">Dance</label>
+                </td>
+            </tr>
+            <tr>
+                <td>자기소개</td>
+                <td colspan="3"><input type="text" id="self"></td>
+            </tr>
+        </table>
+        <input type="submit" value="쿼리 전송">
+        <input type="reset" value="원래대로">
+    </form>
+</body>
+</html>
