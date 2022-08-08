@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>quiz-1</title>
+    <style>
+        ul {
+            list-style:none;
+        }
+        li {
+            margin:20px;
+        }
+        li label {
+            width:80px;
+            float:left;
+        }
+        fieldset {
+            margin:15px;
+        }
+    </style>
+</head>
+<body>
+	<form action="project.php" method="post">
+        <fieldset>
+            <legend>프로젝트 정보</legend>
+            <ul>
+                <li>
+                    <label for="name">이름</label>
+                    <input type="text" id="name">
+                </li>
+                <li>
+                    <label for="import">중요도</label>
+                    <input type="range" id="import" min="1" max="5" value="1">
+                </li>
+                <li>
+                    <label for="time">예상 시간</label>
+                    <input type="time" id="time">
+                </li>
+                <li>
+                    <label for="start">시작 날짜</label>
+                    <input type="date" id="start">
+                </li>
+                <li>
+                    <label for="email">이메일</label>
+                    <input type="email" id="email">
+                </li>
+                <li>
+                    <label for="url">URL</label>
+                    <input type="url" id="url">
+                </li>
+                <li>
+                    <label for="search">검색</label>
+                    <input type="search" id="search">
+                </li>
+                <li>
+                    <input type="submit" value="전송">
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+</body>
+</html>
