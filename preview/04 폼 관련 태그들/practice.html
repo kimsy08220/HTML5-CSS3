@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>폼 연습</title>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+        .submit {
+            display: block;
+            background-color: #fff;
+            border:1px solid #dedede;
+            cursor: pointer;
+            padding: 5px 10px 6px 7px;
+        }
+        .subm img {
+            border:0;
+            padding:0;
+            width:16px;
+            height:16px;
+        }
+        .subm:hover {
+            background-color: #e6efc2;
+            border:1px solid #c6d880;
+            color:#529215;
+        }
+    </style>
+</head>
+<body>
+    <h3>
+        autofocus : 마우스 커서 표시<br>
+        placeholder : 입력란에 표시하는 힌트<br>
+        readonly : 입력하지 못하게 함<br>
+        required : 필수 필드 체크<br>
+        min, max, step : 해당 필드의 최솟값, 최댓값, 숫자 간격<br>
+        <small>(단, type이 date, datetime, datetime-local, month, week, time, range, number만 가능)</small><br>
+        size, minlength, maxlength : 몇 글자까지 보이게 할지 결정, 입력 가능한 최소 글자, 최대 글자<br>
+        select(multiple), option(selected) : 드랍다운 목록 표시(중복 선택 가능), 여러 옵션 표시(기본으로 선택되어 있는 옵션 지정)<br>
+        optgroup : 여러 항목 그룹을 묶을 때 사용(label 속성을 사용해 그룹 제목을 붙임)<br>
+        textarea, cols, rows : 여러 줄의 텍스트 입력, 가로 길이, 세로 길이 지정<br>
+        button : 다양한 형태의 버튼 삽입(image도 가능)<br>
+    </h3>
+    <form>
+        <fieldset>
+            <legend>신청자</legend>
+            <ul>
+                <li>
+                    <label for="uname">이름</label>
+                    <input type="text" id="uname" maxlength="8" autofocus required>
+                </li>
+                <li>
+                    <label for="uid">학번</label>
+                    <input type="text" id="uid" placeholder="하이픈없이 입력">
+                </li>
+                <li>
+                    <label for="uid">학과</label>
+                    <!-- label, multiple 시험에 나옴 -->
+                    <select multiple>
+                        <optgroup label="공과대학">
+                            <option value="archi">건축공학과</option>
+                            <option value="machanic">기계공학과</option>
+                            <option value="indust">산업공학과</option>
+                            <option value="elec">전기전자공학과</option>
+                            <option value="computer" selected>컴퓨터공학과</option>
+                            <option value="chemical">화학공학과</option>
+                        </optgroup>
+                        <optgroup label="인문대학">
+                            <option value="history">사학과</option>
+                            <option value="lang">어문학과</option>
+                            <option value="philo">철학</option>
+                        </optgroup>
+                    </select>
+                </li>
+                <li>
+                    <label for="subject">영어회화(초급)</label>
+                    <input type="text" id="subject" value="오전 9:00~11:00" readonly>
+                </li>
+                <li>
+                    <label for="group">단체주문</label>
+                    <input type="number" id="group" value="10" min="10" max="100" step="10">
+                </li>
+                <li>
+                    <textarea cols="40" rows="5">asdf</textarea>
+                </li>
+                <li>
+                    <!-- 무조건 외워라 -->
+                    <button type="submit" class="subm">
+                        <img src="images/tick.png" alt="">전송하기
+                    </button>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+    <br>
+    
+    <h3>output : 계산 결과를 브라우저에 표시</h3>
+    <form oninput="result.value=parseInt(num1.value)+parseInt(num2.value)">
+        <input type="number" name="num1" value="0"> + 
+        <input type="number" name="num2" value="0"> =
+        <output name="result" for="num"></output>
+    </form>
+    <br>
+
+    <h3>
+        progress : 작업 진행 상태를 브라우저에 표시
+        meter : 전체 크기 중에서 얼마나 차지하는지를 표현할 때 사용(예. 하드디스크 사용량, 유권자 투표율)
+    </h3>
+    <form>
+        <label>10초 남음</label>
+        <progress value="50" max="60"></progress>
+        <br>
+        <label>진행률 30%</label>
+        <progress value="30" max="100"></progress>
+        <br><br>
+
+        <label>점유율 0.8%</label>
+        <meter value="0.8"></meter>
+        <br>
+
+        <label>사용량 64%</label>
+        <meter min="0" max="100" value="64"></meter>
+        <br>
+
+        <label>트래픽 초과</label>
+        <meter min="1024" max="10240" low="2048" high="8192" value="9216"></meter>
+        <br>
+
+        <label>적절한 트래픽</label>
+        <meter value="0.5" optimum="0.8"></meter>
+    </form>
+</body>
+</html>
