@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>font-face 속성</title>
+    <style>
+        @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+        /* 구글 웹 폰트 */
+        .ng-font {
+            font-family:'Nanum Gothic', 돋움; 
+        }
+
+        /* 직접 다운받아 사용 */
+        @font-face {
+            font-family: 'trana';
+            src: local('trana'),
+            url('trana.eot'),
+            url('trana.woff') format('woff'),
+            url('trana.ttf') format('truetype');
+        }
+        .w-font {
+            font-family:'trana', sans-serif; 
+        }
+        p {
+            font-size:30px;
+        }
+    </style>
+</head>
+<body>
+    <p>브라우저 기본 글꼴 사용</p>
+    <p class="ng-font">나눔고딕 웹 폰트 사용</p>
+
+    <p>Using Default Fonts</p>
+    <p class= "w-font">Using Trana Fonts</p>
+</body>
+</html>
