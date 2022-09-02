@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>text-decoration 속성</title>
+    <style>
+        /* text-decoration : none; -> 밑줄 표시x, 암기 */
+        a {text-decoration:none;} 
+        .edited {text-decoration:line-through;} /* 취소선 */
+        
+        a:link { text-decoration: none; }
+        a:visited { text-decoration: none; }
+        a:active { text-decoration: none; }
+        a:hover { text-decoration: none; color: #ff0000; } 
+    </style>
+</head>
+<body>
+    <h2>토마토(Tomato)</h2>
+    <p> [<a href="https://www.fitbug.com/g/Superfoods-tomatoes" target="_blank">외부 링크</a>]</p>
+    <p>토마토는 비타민A, C가 풍부한 <span class="edited">과일이다.</span> 채소다. …… 음식이기도 하다. </p>
+    <h3>
+        a:link - 방문한 적이 없는 링크<br>
+        a:visited - 방문한 적이 있는 링크(기억)<br>
+        a:active - 마우스를 눌렀을 때의 링크 상태<br>
+        a:hover - 마우스가 링크 위에 올라갔을 때(기억)
+    </h3>
+</body>
+</html>
