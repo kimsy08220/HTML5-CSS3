@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>text-shadow 속성</title>
+    <style>
+        h1 {
+            font-size:100px; 
+            font-family:"Arial Rounded MT";
+        }
+        .shadow1{
+            color:orange;
+            /* 가로 거리, 세로 거리, 색상 */
+            text-shadow:1px 1px; 
+        }
+        .shadow2 {
+            /* 가로 거리, 세로 거리, 번짐 정도, 색상 */
+            text-shadow: 5px 5px 3px #f00; 
+        }
+        .shadow3 {
+            color:#fff; 
+            /* 가로 거리, 세로 거리, 번짐 정도, 색상 */
+            text-shadow:7px -7px 5px #000;
+        }
+        .shadow4 {
+        color: #000; /* 글자색 */
+        text-shadow: 0 0 4px #ccc, 0 -5px 4px #ff3, 2px -10px 6px #fd3, -2px -15px 11px #f80, 2px -19px 18px #f20; /* 텍스트 그림
+        자 */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="shadow1">HTML5</h1>
+    <h1 class="shadow2">HTML5</h1>
+    <h1 class="shadow3">HTML5</h1>
+    <h1 class="shadow4">HTML5</h1>
+</body>
+</html>
