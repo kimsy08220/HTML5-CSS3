@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>white-space 속성</title>
+    <style>
+        h1 { font-size:40px; } 
+        .letter1 { letter-spacing: 0.2em;} 
+        .letter2{ letter-spacing:0.5em;} 
+
+        .dl{
+            width:200px;
+            height:300px;
+            border:3px solid red;
+            white-space:pre-line;
+        }
+
+        .a {
+            letter-spacing:-5px;
+        }
+        .b {
+            letter-spacing: 0px;
+        }
+        .c {
+            letter-spacing: 5px;
+        }
+        .d {
+            word-spacing:-20px;
+        }
+        .e {
+            word-spacing: 0px;
+        }
+        .f {
+            word-spacing: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h3>white-space : 공백 처리 방법 지정(normal, nowrap, pre-line 암기)</h3>
+    <h1>HTML5</h1>
+    <h1 class="letter1">HTML5</h1>
+    <h1 class="letter2">HTML5</h1>
+
+    <div class="dl">
+        안녕하세요
+        html5의 기본기능을
+        공부합니다.
+        11시30분에 설명회가
+        있다고 하니
+        잘들으세요
+    </div>
+
+    <h3>letter-spacing : 글자간 간격, word-spacing : 단어간 간격</h3>
+    <h1>letter-spacing</h1>
+    <p class="a">Lorem Ipsum Dolor</p>
+    <p class="b">Lorem Ipsum Dolor</p>
+    <p class="c">Lorem Ipsum Dolor</p>
+    
+    <h1>word-spacing</h1>
+    <p class="d">Lorem Ipsum Dolor</p>
+    <p class="e">Lorem Ipsum Dolor</p>
+    <p class="f">Lorem Ipsum Dolor</p>
+</body>
+</html>
