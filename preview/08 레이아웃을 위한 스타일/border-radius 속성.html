@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>border-radius 속성</title>
+    <style>
+        div {
+            width:250px;
+            height:170px;
+            display:inline-block;
+            margin:15px;
+            border:2px solid black;
+        }
+        .round {
+            border:2px solid red;
+            border-radius:20px;
+        }
+        #bg {
+            background:url('images/pic1.jpg') no-repeat; 
+            background-size:cover;
+        }
+        /* border-radius 중요! */
+        .round1 { border-top-left-radius:100px 50px; }
+        .round2 { border-bottom-right-radius:50% 30%; }
+        .round3 { border-top-right-radius:50px;}
+    </style>
+</head>
+<body>
+    <div class="round"></div>
+    <div class="round" id="bg"></div>
+
+    <div class="round1"></div>
+    <div class="round2"></div>
+    <div class="round3"></div>
+</body>
+</html>
